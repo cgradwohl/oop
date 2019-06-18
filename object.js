@@ -132,3 +132,35 @@ console.log('this', this);
 `);
 const circle4 = new Circle2(1);
 circle4.draw(); // 'Draw4'
+
+
+
+/**
+ * Properties of objects
+ * 
+ */
+
+ const circle5 = new Circle(10);
+ 
+ // objects are dynamic
+ circle5.location = {x:1};
+ 
+// bracket notation to dynamically set a property
+ const propertyName = 'location';
+ circle5[propertyName] = {x:1};
+
+delete circle5.location;
+ console.log('circle5', circle5);
+
+
+// ENUMERATING Objects
+for(let key in circle){
+  console.log(key, circle[key])
+}
+
+const keys = Object.keys(circle);
+console.log(keys);
+
+if('radius' in circle){
+  console.log('circle has a radius');
+}
