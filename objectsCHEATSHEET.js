@@ -61,7 +61,6 @@ function Circle(radius) {
 }                       
 
 // To define a getter/setter, use Object.defineProperty():
-
 Object.defineProperty(this, 'defaultLocation', {
     get: function() { return defaultLocation; },
     set: function(value) { defaultLocation = value; }
