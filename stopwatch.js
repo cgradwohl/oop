@@ -1,7 +1,5 @@
 function Stopwatch() {
-  let startTime, stopTime, isRunning = 0;
-
-  this.duration = 0;
+  let startTime, stopTime, isRunning, duration = 0;
 
   this.start = function() {
     console.log('start');
@@ -17,27 +15,27 @@ function Stopwatch() {
       throw new Error("Stopwatch needs to be started first.")
     }
     stopTime = Date.now();
-    this.duration += (stopTime - startTime) / 1000;
+    duration += (stopTime - startTime) / 1000;
     isRunning = false;
   }
 
   this.reset = function() {
     startTime, stopTime, isRunning = 0;
-    this.duration = 0;
+    duration = 0;
   }
 
-  // Object.defineProperty(this, 'duration', {
-  //   get: function() {
-  //     return duration;
-  //   },
-  // })
+  Object.defineProperty(this, 'duration', {
+    get: function() {
+      return duration;
+    },
+  })
 }
 
 
 
-const sw = new Stopwatch();
-console.log(sw.duration);
-sw.start()
+const swOG = new Stopwatch();
+// console.log(sw.duration);
+// sw.start()
 // sw.stop()
 // sw.reset()
 

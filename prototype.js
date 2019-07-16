@@ -7,7 +7,7 @@ console.log(descriptor);
 // remember this is also how you add getters and setters!
 Object.defineProperty(person, 'name', {
   writable: false, // if true allows you to change the value of the key
-  enumerable: false, // if true allows you to enumerate over the object
+  enumerable: false, // if true allows you to enumerate overthis property in the object
   configurable: false // if true allows you to delete the key
 });
 
@@ -58,8 +58,14 @@ console.log(OldCircle.prototype === c1.__proto__); // true
 
 
 function NewCircle(radius) {
-  console.log('this', this);
+  // Instance member  
   this.radius = radius;
+
+
+  // Instance member  
+  this.move = function() {
+    console.log('The move function.');
+  }
 }
 
 // by adding the draw method to the prototype, each instantiation no long has to carry its own copy of the draw method.
@@ -69,7 +75,22 @@ NewCircle.prototype.draw = function() {
 }
 
 const c3 = new NewCircle(20);
-const c4 = new NewCircle(20);
 
+// ONLY RETURNS INSTANCE or OWN MEMBERS!!!!
+console.log(Object.keys(c3));
+
+// RETURNS INSTANCE AND PROTOTYPE MEMBERS!!!!
+for (let key in c3) {
+  console.log(key);
+}
+
+
+// DO NOT MODIFY OBJECTS THAT YOU DO NOT OWN!!!
+Array.prototype.shuffle = function() {
+  console.log('shuffle me');
+}
+
+const a = [];
+a.shuffle();
 
 
