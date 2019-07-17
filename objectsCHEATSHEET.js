@@ -4,7 +4,7 @@ const circle = {
    draw: function() {}
 }; 
    
-// To create multiple objects with the same structure and behaviuor (methods), use a factory or a constructor. 
+// To create multiple objects with the same structure and behaviour (methods), use a factory or a constructor. 
 
 // Factory function 
 function createCircle(radius) { 
@@ -19,6 +19,15 @@ function Circle(radius) {
     this.radius = radius; 
     this.draw = function() {}
 } 
+
+/**
+ * A constructor function does 4 things to create an object:
+ * 1. creates a fresh object literal: let obj = {}
+ * 2. set the prototype of obj to be the prototype prop of the constructor: Object.setPrototypeOf(obj, constructor.prototype)
+ * 3. execute the constructor with the 'this' keyword as the obj: constructor.apply(obj, Array.from(arguments).slice(1))
+ * 4. return the created object: return obj (if the constructor does not have a return statement)
+ */
+
     
 // Every object has a "constructor" property which returns the function that was used to construct or create that object. 
 const x = {};
